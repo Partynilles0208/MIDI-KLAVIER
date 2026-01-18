@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MIDI klavier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">MIDI Visualizer</p>
+        <h1>MIDI klavier</h1>
+        <p class="sub">Classic Piano · clean · keine verlorenen Noten</p>
+      </div>
+      <div class="hero-orb" aria-hidden="true"></div>
+    </header>
+
+    <section class="controls">
+      <label class="file">
+        <input id="midiInput" type="file" accept=".mid,.midi" />
+        <span>Datei auswählen</span>
+      </label>
+
+      <button id="playBtn" class="btn" disabled>Play</button>
+      <button id="pauseBtn" class="btn" disabled>Pause</button>
+      <button id="stopBtn" class="btn" disabled>Stop</button>
+
+      <div class="slider">
+        <label for="speed">Tempo</label>
+        <input id="speed" type="range" min="0.5" max="2" step="0.1" value="1" />
+        <span id="speedValue">1.0x</span>
+      </div>
+
+      <div class="slider">
+        <label for="volume">Lautstärke</label>
+        <input id="volume" type="number" step="0.1" value="1" min="0" />
+        <span style="opacity:.8">x</span>
+      </div>
+    </section>
+
+    <section class="stage">
+      <div class="roll" id="roll">
+        <div id="bars" class="bars"></div>
+        <div class="keyline"></div>
+      </div>
+      <div class="keyboard" id="keyboard"></div>
+    </section>
+
+    <section class="status">
+      <div id="fileName">Keine Datei geladen.</div>
+      <div id="timeReadout">0.0s</div>
+    </section>
+  </div>
+
+  <!-- ✅ lokal (nicht CDN) -->
+  <script src="soundfont-player.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
